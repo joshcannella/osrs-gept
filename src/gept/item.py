@@ -1,4 +1,4 @@
-from prices_api import get_price_by_id
+from prices_api import get_price_by_id, get_volume_by_id
 
 class Item:
     def __init__(self, json):
@@ -9,8 +9,11 @@ class Item:
     def __repr__(self):
         return f"{self.name} ({self.id})"
     
-    def get_price(self):
+    def get_price_info(self):
         return get_price_by_id(self.id)
+    
+    def get_volume_info(self):
+        return get_volume_by_id(self.id)
     
 if __name__ == '__main__':
     item = Item({
@@ -35,4 +38,5 @@ if __name__ == '__main__':
         "icon": "Zuriel's staff.png",
         "name": "Zuriel's staff"
     })
-    print(item.get_price())
+    print(item2.get_price_info())
+    print(item2.get_volume_info())

@@ -12,17 +12,23 @@ def _fetch_json(url):
     f = urllib.request.urlopen(req)
     return json.load(f)
 
-def get_mappings():
+def get_mappings() -> list:
     return _fetch_json(MAPPING_URL)
     
 def get_prices() -> dict:
     return _fetch_json(PRICES_URL)['data']
 
-def get_volumes():
+def get_volumes() -> dict:
     return _fetch_json(VOLUMES_URL)['data']
 
 def get_price_by_id(id):
     try:
         return get_prices()[str(id)]
-    except KeyError as e:
+    except KeyError:
+        return None
+    
+def get_volume_by_id(id):
+    try:
+        return get_volumes()[str(id)]
+    except KeyError:
         return None
