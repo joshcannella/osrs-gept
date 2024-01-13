@@ -1,5 +1,5 @@
-from item import Item
-from prices_api import get_mappings
+from .item import Item
+from .prices_api import get_mappings
 
 class Catalog:
     def __init__(self):

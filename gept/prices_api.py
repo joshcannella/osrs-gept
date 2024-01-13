@@ -1,7 +1,7 @@
 import json
 import urllib.request
 
-from constants import MAPPING_URL, PRICES_URL, VOLUMES_URL
+from .constants import MAPPING_URL, PRICES_URL, VOLUMES_URL
     
 def _fetch_json(url):
     headers = {
