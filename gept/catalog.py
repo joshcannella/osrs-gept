@@ -1,5 +1,7 @@
-from .item import Item
-from .prices_api import get_mappings
+import json
+
+from gept.item import Item
+from gept.prices_api import get_mappings
 
 class Catalog:
     def __init__(self):
@@ -13,8 +15,14 @@ class Catalog:
         found_items = [item for item in self.items.values() if search_name.lower() in item.name.lower()]
         return found_items
     
+def get_item_names():
+    file_path = 'items.json'
+
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+
+    return[item['name'] for item in data]
+    
 if __name__ == '__main__':
     c = Catalog()
-    # {print(i) for i in c.items.values()}
-    # print(c.items[24393].get_price_info())
-    print(c.search_by_name('gold'))
+    print(c.search_by_name('gold bar'))

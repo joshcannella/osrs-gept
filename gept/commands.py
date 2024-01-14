@@ -1,6 +1,6 @@
-import click
+import click        
 
-from .catalog import Catalog
+from gept.catalog import Catalog
 
 @click.command()
 @click.option("-i", "--info", is_flag=True, show_default=True, default=False, help="Show item info.")
@@ -15,5 +15,3 @@ def hello(info, items):
 def find(input):
     cat = Catalog()
     click.echo(cat.search_by_name(input))
-        
-

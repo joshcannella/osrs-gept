@@ -1,4 +1,4 @@
-from .prices_api import get_price_by_id, get_volume_by_id
+from gept.prices_api import get_price_by_id, get_volume_by_id
 
 class Item:
     def __init__(self, json):
