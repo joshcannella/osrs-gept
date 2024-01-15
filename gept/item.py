@@ -5,6 +5,7 @@ class Item:
         self.info = json
         self.name = json["name"]
         self.id = json["id"]
+        self.json = json
         
     def __repr__(self):
         return f"{self.name} ({self.id})"
