@@ -12,7 +12,7 @@ def hello(names):
 @click.command(help="Look up items on the ge.")
 @click.argument("args", nargs=-1) 
 @click.option("-i", "--info", is_flag=True, show_default=True, default=False, help="Show item info.")
-def find(args: str, info: bool):
+def search(args: str, info: bool):
     cat = Catalog()
     found = []
     for arg in args:
